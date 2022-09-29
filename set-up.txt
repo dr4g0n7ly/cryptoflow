@@ -11,7 +11,7 @@ REACT_APP_PINATA_SECRET = "d07c9f3fd0d7cada0c1303b02b5e2c7ee554bd804e0dbc9b9242b
 
 3. deploy script only ONCE by running following command 
 
-npx hardhat run --network goerli scripts/deploy.js  :       deploy smart contract
+npx hardhat run --network goerli scripts/deploy.js
 
 
 
