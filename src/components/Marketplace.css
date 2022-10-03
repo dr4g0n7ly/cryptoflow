@@ -1,0 +1,29 @@
+.home-body {
+    color: white;
+    margin-top: 100px;
+    margin-right: 15%;
+    margin-left: 15%;
+    background-color: #0C0B0E;
+}
+
+.homeTitles {
+    color: white;
+    font-size: xx-large;
+    margin-bottom: 10px;
+}
+
+.banner {
+    height: auto;
+    width: 100%;
+}
+
+.home-block {
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.product-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

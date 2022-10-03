@@ -1,4 +1,3 @@
-import Navbar from "./Navbar";
 import { useLocation, useParams } from 'react-router-dom';
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
@@ -62,7 +61,6 @@ export default function Profile () {
 
     return (
         <div className="profileClass" style={{"min-height":"100vh"}}>
-            <Navbar></Navbar>
             <div className="profileClass">
             <div className="flex text-center flex-col mt-11 md:text-2xl text-white">
                 <div className="mb-5">

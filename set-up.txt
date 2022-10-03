@@ -8,11 +8,13 @@ REACT_APP_PINATA_KEY = "afec7ff96002ffad8e61"
 REACT_APP_PINATA_SECRET = "d07c9f3fd0d7cada0c1303b02b5e2c7ee554bd804e0dbc9b9242bea9cae1b588"
 
 
+3. npm install
 
-3. deploy script only ONCE by running following command 
+
+4. deploy script only ONCE by running following command 
 
 npx hardhat run --network goerli scripts/deploy.js
 
 
 
-4. npm start
+5. npm start

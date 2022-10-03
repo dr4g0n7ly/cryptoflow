@@ -67,6 +67,12 @@ contract NFTMarketplace is ERC721URIStorage {
 
     //The first time a token is created, it is listed here
     function createToken(string memory tokenURI, uint256 price) public payable returns (uint) {
+        
+        //Make sure the sender sent enough ETH to pay for listing
+        require(msg.value == listPrice, "Hopefully sending the correct price");
+        //Just sanity check
+        require(price > 10000000000000000, "Make sure the price isn't negative");
+        
         //Increment the tokenId counter, which is keeping track of the number of minted NFTs
         _tokenIds.increment();
         uint256 newTokenId = _tokenIds.current();
@@ -84,10 +90,6 @@ contract NFTMarketplace is ERC721URIStorage {
     }
 
     function createListedToken(uint256 tokenId, uint256 price) private {
-        //Make sure the sender sent enough ETH to pay for listing
-        require(msg.value == listPrice, "Hopefully sending the correct price");
-        //Just sanity check
-        require(price > 0, "Make sure the price isn't negative");
 
         //Update the mapping of tokenId's to Token details, useful for retrieval functions
         idToListedToken[tokenId] = ListedToken(

@@ -1,0 +1,55 @@
+.footer-body {
+    font-size: small;
+    background-color: #20212C;
+    color: #FFFFFF;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.col {
+    width: 120px;
+}
+
+.footerlogo {
+    height: 30px;
+    width: 30px;
+    margin-top: 20px;
+    margin-left: 25px;
+}
+
+.footer-brand {
+    font-size: large;
+    margin-left: 60px;
+    margin-top: -25px;
+    width: 100%;
+}
+
+.footer-heading {
+    margin-top: 20px;
+    color: #008BF7;
+    font-size: large;
+    position: relative;
+    left: 60px;
+}
+
+.footer-item {
+    position: relative;
+    left: 60px;
+}
+
+.container {
+    padding-top: 20px;
+}
+
+#footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.footer-right {
+    display: flex;
+    justify-content: space-around;
+    margin-right: 20%;
+}

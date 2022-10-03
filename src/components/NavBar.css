@@ -1,0 +1,74 @@
+.navbar-body {
+    background-color: #0C0B0E;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.navbar {
+    background-color: #0C0B0E;
+    border-bottom: 1px solid #2D396B;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.cflogo {
+    width: 4vh;
+    height: auto;
+    transition: transform .5s;
+}
+.cflogo:hover {
+  transform: rotate(360deg);
+}
+
+.search{
+    background-color: #20212C;
+    border-color: #20212C;
+    height: 35px;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: small;
+    display: block;
+    margin : auto;
+    width: 100%;
+    color: white !important;
+}
+
+.nav {
+    text-align: center;
+    color: #F3EBFF !important;
+    position: relative;
+    left: 8px;
+    font-size: small;
+}
+.nav:hover{
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.productnav {
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    margin: 2px;
+    color: #F3EBFF !important;
+    font-size: small;
+}
+.productnav:hover {
+    border: 1px solid #0C0B0E;
+    border-radius: 10px;
+    background-color: #20212C;
+}
+
+.walletnav {
+    background-color: #0C0B0E;
+    text-align: center;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: #008BF6 !important;
+    margin: 2px;
+    font-size: small;
+}
+.walletnav:hover {
+    border: 1px solid #0C0B0E;
+    border-radius: 10px;
+    background-color: #1b1c28;
+}
