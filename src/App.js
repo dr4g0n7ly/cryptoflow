@@ -3,9 +3,9 @@ import './App.css';
 
 import NavBar from './components/NavBar.js';
 import { Footer } from './components/Footer.js';
-import Marketplace from './components/Marketplace';
+import Home from './components/Home.js';
 import Profile from './components/Profile.js';
-import SellNFT from './components/SellNFT.js';
+import AddProduct from './components/AddProduct.js';
 import NFTPage from './components/NFTpage.js';
 
 import { useState } from 'react';
@@ -65,10 +65,10 @@ function App() {
           ):(
               <div>
                 <Routes>
-                  <Route path="/" element={<Marketplace />}/>
+                  <Route path="/" element={<Home />}/>
                   <Route path="/nftPage" element={<NFTPage />}/>        
                   <Route path="/profile" element={<Profile />}/>
-                  <Route path="/sellNFT" element={<SellNFT />}/>             
+                  <Route path="/addProduct" element={<AddProduct />}/>             
                 </Routes>
               </div>
           )}

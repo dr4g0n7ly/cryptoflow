@@ -2,7 +2,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
-import NFTTile from "./NFTTile";
+import ProductCard from "./ProductCard";
 
 export default function Profile () {
     const [data, updateData] = useState([]);
@@ -82,7 +82,7 @@ export default function Profile () {
                 <h2>Your NFTs</h2>
                 <div>
                     {data.map((value, index) => {
-                    return <NFTTile data={value} key={index}></NFTTile>;
+                    return <ProductCard data={value} key={index}></ProductCard>;
                     })}
                 </div>
                 <div>

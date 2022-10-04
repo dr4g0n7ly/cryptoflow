@@ -4,10 +4,10 @@ import Marketplace from '../Marketplace.json';
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { Button, Row, Col } from 'react-bootstrap';
-import './SellNFT.css';
+import './AddProduct.css';
 import back from '../public/back.png';
 
-const SellNFT = () => {
+const AddProduct = () => {
     const [formParams, updateFormParams] = useState({ name: '', description: '', price: ''});
     const [fileURL, setFileURL] = useState(null);
     const ethers = require("ethers");
@@ -136,4 +136,4 @@ const SellNFT = () => {
     );
 }
 
-export default SellNFT;
+export default AddProduct;

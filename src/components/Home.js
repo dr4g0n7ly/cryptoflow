@@ -1,11 +1,11 @@
-import NFTTile from "./NFTTile";
+import NFTTile from "./ProductCard";
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
 import banner from '../public/banner.png';
-import './Marketplace.css';
+import './Home.css';
 
-const Marketplace = () => {
+const Home = () => {
 
     const sampleData = [];
     const [data, updateData] = useState(sampleData);
@@ -65,4 +65,4 @@ const Marketplace = () => {
 
 }
 
-export default Marketplace;
+export default Home;

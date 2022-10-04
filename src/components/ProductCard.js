@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import './NFTTile.css';
+import './ProductCard.css';
 import { Card } from 'react-bootstrap';
 
 function NFTTile (data) {
