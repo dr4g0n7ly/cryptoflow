@@ -26,7 +26,8 @@ const NavBar = ({ web3Handler, account }) => {
                     <Nav.Link as={Link} to="/currentbid" className="nav">Current Bid</Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
-                    <Nav.Link as={Link} to="/sellNFT" className="productnav">Add Product</Nav.Link>
+                    <Nav.Link as={Link} to="/auctionProduct" className="productnav">Auction Product</Nav.Link>
+                    <Nav.Link as={Link} to="/sellProduct" className="productnav">Sell Product</Nav.Link>
                     {account ? (
                             <Dropdown onMouseLeave={() => setShowDropdown(false)} onMouseOver={() => setShowDropdown(true)}>
                                 <Dropdown.Toggle className="walletnav" style={{width: '100%', height: '40px'}} id="dropdown-basic">
@@ -37,7 +38,7 @@ const NavBar = ({ web3Handler, account }) => {
                                     <Dropdown.Item href="#">Settings</Dropdown.Item>
                                     <Dropdown.Item href="#">Feedback</Dropdown.Item>
                                     <Dropdown.Item href="#">Contact Us</Dropdown.Item>
-                                    <Dropdown.Item href="/" target="_self" style={{color: "#DD3546"}}>Log out</Dropdown.Item>
+                                    <Dropdown.Item href="/" target="_self" to="/" style={{color: "#DD3546"}}>Log Out</Dropdown.Item>
                                 </Dropdown.Menu>
                             </Dropdown>
                     ) : (

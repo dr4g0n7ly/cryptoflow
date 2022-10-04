@@ -5,8 +5,9 @@ import NavBar from './components/NavBar.js';
 import { Footer } from './components/Footer.js';
 import Home from './components/Home.js';
 import Profile from './components/Profile.js';
-import AddProduct from './components/AddProduct.js';
+import SellProduct from './components/SellProduct.js';
 import NFTPage from './components/NFTpage.js';
+import AuctionProduct from './components/AuctionProduct.js';
 
 import { useState } from 'react';
 import { ethers } from 'ethers';
@@ -68,7 +69,8 @@ function App() {
                   <Route path="/" element={<Home />}/>
                   <Route path="/nftPage" element={<NFTPage />}/>        
                   <Route path="/profile" element={<Profile />}/>
-                  <Route path="/addProduct" element={<AddProduct />}/>             
+                  <Route path="/sellProduct" element={<SellProduct />}/>  
+                  <Route path="/auctionProduct" element={<AuctionProduct />}/>  
                 </Routes>
               </div>
           )}

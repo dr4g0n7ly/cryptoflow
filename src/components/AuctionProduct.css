@@ -1,4 +1,12 @@
-.backbutton, .add-button {
+.auction-body {
+    margin: 80px;
+}
+
+.auction-button {
+    margin-top: 40px;
+    width: 100%;
+}
+.auction-button {
     background-color: #0C0B0E;
     border: 1px solid white;
     border-radius: 10px;
@@ -6,36 +14,29 @@
     margin: 2px;
     font-size: medium;
 }
-.backbutton:hover, .add-button:hover {
+.auction-button:hover {
     border: 1px solid #0C0B0E;
     border-radius: 10px;
     background-color: #1b1c28;
 }
-.backlogo {
-    height: 10px;
-    width: 6px;
-    margin-right: 5px;
-    margin-bottom: 2px;
-}
-.backbody {
-    display: flex;
-    justify-content: left;
-    margin-top: 100px;
-}
 
-.add-body {
-    margin: 80px;
+.auction-heading {
+    color: white;
+    padding: 10px;
+    font-size: large;
+    margin-top: 10px;
 }
 
 .input {
     background-color: #1b1c28;
     border-color: #1b1c28;
     font-size: medium;
+    color: white;
 }
 .input:active {
     color: white;
 }
-.input:focus, .file-upload:focus {
+.input:focus {
     outline-style: none;
     box-shadow: none;
     border-color: transparent;
@@ -43,19 +44,11 @@
     color: white;
 }
 
-.add-heading {
+.category {
     color: white;
-    padding: 10px;
-    font-size: large;
-}
-
-.file-upload {
-    height: 156px;
     background-color: #1b1c28;
-    border-color: #0C0B0E;
-}
-
-.add-button {
-    margin-top: 40px;
+    border: none;
+    border-radius: 7px;
+    padding: 10px;
     width: 100%;
 }

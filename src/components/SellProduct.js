@@ -3,12 +3,12 @@ import { uploadFileToIPFS, uploadJSONToIPFS } from "../pinata";
 import Marketplace from '../Marketplace.json';
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { Button, Row, Col } from 'react-bootstrap';
-import './AddProduct.css';
+import { Button, Row, Col, Form } from 'react-bootstrap';
+import './SellProduct.css';
 import back from '../public/back.png';
 
-const AddProduct = () => {
-    const [formParams, updateFormParams] = useState({ name: '', description: '', price: ''});
+const SellProduct = () => {
+    const [formParams, updateFormParams] = useState({ name: '', description: '', price: '', category: ''});
     const [fileURL, setFileURL] = useState(null);
     const ethers = require("ethers");
     const [message, updateMessage] = useState('');
@@ -33,11 +33,10 @@ const AddProduct = () => {
 
     //This function uploads the metadata to IPFS
     async function uploadMetadataToIPFS() {
-        const {name, description, price} = formParams;
+        const {name, description, price, category} = formParams;
         //Make sure that none of the fields are empty
         if( !name || !description || !price || !fileURL)
             return;
-
         const nftJSON = {
             name, description, price, image: fileURL
         }
@@ -90,50 +89,55 @@ const AddProduct = () => {
 
     console.log("Working", process.env);
     return (
-        <div className="add-body">
+        <div className="sell-body">
             <div className="backbody">
                 <Button variant='outline-light' className="backbutton float-left" as={Link} to="/">
                     <img src={back} className="backlogo" alt='/'/>Back
                 </Button>
             </div>
             <div className="d-flex justify-content-center">
-                <h2 style={{padding: '20px'}}>Add Product</h2>
+                <h2 style={{padding: '20px'}}>Sell Product</h2>
             </div>
-            <div className="row">
+            <div>
                 <main role="main" className="col-lg-12 mx-auto" style={{maxWidth: '1000px'}}>
-                <div className="content mx-auto">
-                <Row className="g-4">
-                    <Col>
-                        <div className="add-heading">Product Image</div>
-                        <input className="file-upload" type={"file"} onChange={OnChangeFile}></input>
-                    </Col>
-                    <Col>
-                        <div className="add-heading">Product Name</div>
-                        <input className="input" id="name" type="text" placeholder="Name" size="lg" onChange={e => updateFormParams({...formParams, name: e.target.value})} value={formParams.name}></input>
-                        <div className="add-heading">Product Description</div>
-                        <textarea className="input" cols="40" rows="5" id="description" type="text" placeholder="Description" value={formParams.description} onChange={e => updateFormParams({...formParams, description: e.target.value})}></textarea>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col>
-                        <div className="add-heading">Starting Bid</div>
-                        <input className="input" type="number" size="lg" placeholder="Min 0.01 ETH" step="0.01" value={formParams.price} onChange={e => updateFormParams({...formParams, price: e.target.value})}></input>
-                    </Col>
-                    <Col>
-                        <div className="add-heading">Bid Increment</div>
-                        <input className="input" type="number" size="lg" placeholder="Min 0.01 ETH" step="0.01"></input>
-                    </Col>
-                </Row>
-                <br></br>
-                <div className>{message}</div>
-                <Button onClick={listNFT} className="add-button">
-                    Add Product
-                </Button>
-                </div>
+                    <div className="content mx-auto">
+                        <Row className="g-4">
+                            <Col>
+                                <div className="sell-heading">Product Image</div>
+                                <Form.Control className="file-upload" type={"file"} name="file" onChange={OnChangeFile}/>
+                            </Col>
+                            <Col>
+                                <div className="sell-heading">Product Name</div>
+                                <Form.Control className="input" type="text" placeholder="Product Name" size="lg" id="name" onChange={e => updateFormParams({...formParams, name: e.target.value})} value={formParams.name} />
+                                <div className="sell-heading">Product Description</div>
+                                <Form.Control className="input" as="textarea" placeholder="Product Description" size="lg" id="description" value={formParams.description} onChange={e => updateFormParams({...formParams, description: e.target.value})}/>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div className="sell-heading">Product Price</div>
+                                <Form.Control className="input" type="number" size="lg" placeholder="Min 0.005 ETH" step="0.005" value={formParams.price} onChange={e => updateFormParams({...formParams, price: e.target.value})} />
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div className="sell-heading">Category</div>
+                                <Form.Select className="category" value={formParams.category} onChange={e => updateFormParams({...formParams, category: e.target.value})}>
+                                    <option value="1">Electronics</option>
+                                    <option value="2">Luxury</option>
+                                    <option value="3">Vehicles</option>
+                                    <option value="4">Furniture</option>
+                                </Form.Select>
+                            </Col>
+                        </Row>
+                        <br/>
+                        <div className="text-green text-center">{message}</div>
+                        <Button className="sell-button d-flex justify-content-center" size="lg" onClick={listNFT}>Sell Product</Button>
+                    </div>
                 </main>
             </div>
         </div>
     );
 }
 
-export default AddProduct;
+export default SellProduct;

@@ -1,0 +1,63 @@
+.backbutton, .sell-button {
+    background-color: #0C0B0E;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: #008BF6 !important;
+    margin: 2px;
+    font-size: medium;
+}
+.backbutton:hover, .sell-button:hover {
+    border: 1px solid #0C0B0E;
+    border-radius: 10px;
+    background-color: #1b1c28;
+}
+.backlogo {
+    height: 10px;
+    width: 6px;
+    margin-right: 5px;
+    margin-bottom: 2px;
+}
+.backbody {
+    display: flex;
+    justify-content: left;
+    margin-top: 100px;
+}
+
+.sell-body {
+    margin: 80px;
+}
+
+.input {
+    background-color: #1b1c28;
+    border-color: #1b1c28;
+    font-size: medium;
+    color: white;
+}
+.input:active {
+    color: white;
+}
+.input:focus, .file-upload:focus {
+    outline-style: none;
+    box-shadow: none;
+    border-color: transparent;
+    background-color: #1b1c28;
+    color: white;
+}
+
+.sell-heading {
+    color: white;
+    padding: 10px;
+    font-size: large;
+    margin-top: 10px;
+}
+
+.file-upload {
+    height: 166px;
+    background-color: #1b1c28;
+    border-color: #0C0B0E;
+}
+
+.sell-button {
+    margin-top: 40px;
+    width: 100%;
+}

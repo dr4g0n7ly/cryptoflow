@@ -1,4 +1,4 @@
-import NFTTile from "./ProductCard";
+import ProductCard from "./ProductCard";
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
@@ -56,7 +56,7 @@ const Home = () => {
                 <div className="homeTitles">🏷️ Products</div>
                     <div className="product-container">
                         {data.map((value, index) => {
-                            return <NFTTile data={value} key={index}></NFTTile>;
+                            return <ProductCard data={value} key={index}></ProductCard>;
                         })}
                     </div>
             </div>            
