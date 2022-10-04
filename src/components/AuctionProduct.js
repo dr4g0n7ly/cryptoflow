@@ -147,6 +147,7 @@ const AuctionProduct = () => {
                         </Row>
                         <br/><br/>
                         <div className="text-green text-center">{message}</div>
+                        <br/><br/>
                         <Button className="auction-button d-flex justify-content-center" size="lg" onClick={listNFT}>Auction Product</Button>
                     </div>
                 </main>
