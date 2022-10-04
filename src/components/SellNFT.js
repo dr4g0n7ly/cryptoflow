@@ -92,7 +92,7 @@ const SellNFT = () => {
     return (
         <div className="add-body">
             <div className="backbody">
-                <Button className="backbutton float-left" as={Link} to="/">
+                <Button variant='outline-light' className="backbutton float-left" as={Link} to="/">
                     <img src={back} className="backlogo" alt='/'/>Back
                 </Button>
             </div>
@@ -125,7 +125,7 @@ const SellNFT = () => {
                     </Col>
                 </Row>
                 <br></br>
-                <div className="text-green text-center">{message}</div>
+                <div className>{message}</div>
                 <Button onClick={listNFT} className="add-button">
                     Add Product
                 </Button>
