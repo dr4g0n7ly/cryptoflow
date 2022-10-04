@@ -35,7 +35,7 @@ const SellProduct = () => {
     async function uploadMetadataToIPFS() {
         const {name, description, price, category} = formParams;
         //Make sure that none of the fields are empty
-        if( !name || !description || !price || !fileURL)
+        if( !name || !description || !price || !fileURL || !category)
             return;
         const nftJSON = {
             name, description, price, image: fileURL
@@ -70,16 +70,18 @@ const SellProduct = () => {
 
             //massage the params to be sent to the create NFT request
             const price = ethers.utils.parseUnits(formParams.price, 'ether')
+            const category = formParams.category;
+            console.log("Category: ", category);
             let listingPrice = await contract.getListPrice()
             listingPrice = listingPrice.toString()
 
             //actually create the NFT
-            let transaction = await contract.createToken(metadataURL, price, { value: listingPrice })
+            let transaction = await contract.createToken(metadataURL, price, category, { value: listingPrice })
             await transaction.wait()
 
             alert("Successfully listed your NFT!");
             updateMessage("");
-            updateFormParams({ name: '', description: '', price: ''});
+            updateFormParams({ name: '', description: '', price: '', category: ''});
             window.location.replace("/")
         }
         catch(e) {
@@ -110,7 +112,7 @@ const SellProduct = () => {
                                 <div className="sell-heading">Product Name</div>
                                 <Form.Control className="input" type="text" placeholder="Product Name" size="lg" id="name" onChange={e => updateFormParams({...formParams, name: e.target.value})} value={formParams.name} />
                                 <div className="sell-heading">Product Description</div>
-                                <Form.Control className="input" as="textarea" placeholder="Product Description" size="lg" id="description" value={formParams.description} onChange={e => updateFormParams({...formParams, description: e.target.value})}/>
+                                <Form.Control className="input" as="textarea" placeholder="Product Description" size="lg" id="description" value={formParams.description} onChange={e => updateFormParams({...formParams, description: e.target.value})} />
                             </Col>
                         </Row>
                         <Row>

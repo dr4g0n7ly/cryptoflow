@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "C:\\Users\\nisha\\Documents\\GitHub\\cryptoflow-final\\contracts\\NFTMarketplace.sol": {
-      "lastModificationDate": 1664917365726,
-      "contentHash": "7f1784417cc20896cbec9432e24bf00b",
+      "lastModificationDate": 1664917843994,
+      "contentHash": "678b936a47c38c0ce7f214b10306d0c2",
       "sourceName": "contracts/NFTMarketplace.sol",
       "solcConfig": {
         "version": "0.8.4",
@@ -475,6 +475,46 @@
       ],
       "artifacts": [
         "IERC165"
+      ]
+    },
+    "C:\\Users\\nisha\\Documents\\GitHub\\cryptoflow-final\\contracts\\NFTAuctionplace.sol": {
+      "lastModificationDate": 1664917919737,
+      "contentHash": "3b19ef1cc0bbec8ea60694577d019320",
+      "sourceName": "contracts/NFTAuctionplace.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol",
+        "@openzeppelin/contracts/utils/Counters.sol",
+        "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol",
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "NFTAuctionplace"
       ]
     }
   }
