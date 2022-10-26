@@ -1,4 +1,5 @@
 import ProductCard from "./ProductCard";
+import AuctionCard from "./AuctionCard";
 import MarketplaceJSON from "../Marketplace.json";
 import AuctionplaceJSON from "../Auctionplace.json";
 import axios from "axios";
@@ -15,8 +16,6 @@ const Home = () => {
 
     const [auctionData, updateAuctionData] = useState(sampleData);
     const [auctionDataFetched, auctionUpdateFetched] = useState(false);
-
-    const categorySampleData = [[]];
 
     const [mCat1Data, updateMCat1Data] = useState(sampleData);
     const [mCat2Data, updateMCat2Data] = useState(sampleData);
@@ -354,47 +353,49 @@ const Home = () => {
                         return <ProductCard data={value} key={index}></ProductCard>;
                     })}
                     {auctionData.map((value, index) => {
-                        return <ProductCard data={value} key={index}></ProductCard>;
+                        return <AuctionCard data={value} key={index}></AuctionCard>;
                     })}
                 </div>
                 <br/><br/><br/>
-                <div className="homeTitles">🏷️ Electronics</div>
+                <div className="homeTitles">🏷️ Shop by Category</div>
+                <br/>
+                <div className="homeTitles" style={{fontSize: 'x-large'}}>💻 Electronics</div>
                 <div className="product-container">
                     {mCat1Data.map((value, index) => {
                         return <ProductCard data={value} key={index}></ProductCard>;
                     })}
                     {aCat1Data.map((value, index) => {
-                        return <ProductCard data={value} key={index}></ProductCard>;
+                        return <AuctionCard data={value} key={index}></AuctionCard>;
                     })}
                 </div>
                 <br/><br/>
-                <div className="homeTitles">🏷️ Luxury</div>
+                <div className="homeTitles" style={{fontSize: 'x-large'}}>✨ Luxury</div>
                 <div className="product-container">
                     {mCat2Data.map((value, index) => {
                         return <ProductCard data={value} key={index}></ProductCard>;
                     })}
                     {aCat2Data.map((value, index) => {
-                        return <ProductCard data={value} key={index}></ProductCard>;
+                        return <AuctionCard data={value} key={index}></AuctionCard>;
                     })}
                 </div>
                 <br/><br/>
-                <div className="homeTitles">🏷️ Vehicles</div>
+                <div className="homeTitles" style={{fontSize: 'x-large'}}>🚗 Vehicles</div>
                 <div className="product-container">
                     {mCat3Data.map((value, index) => {
                         return <ProductCard data={value} key={index}></ProductCard>;
                     })}
                     {aCat3Data.map((value, index) => {
-                        return <ProductCard data={value} key={index}></ProductCard>;
+                        return <AuctionCard data={value} key={index}></AuctionCard>;
                     })}
                 </div>
                 <br/><br/>
-                <div className="homeTitles">🏷️ Furniture</div>
+                <div className="homeTitles" style={{fontSize: 'x-large'}}>🛋️ Furniture</div>
                 <div className="product-container">
                     {mCat4Data.map((value, index) => {
                         return <ProductCard data={value} key={index}></ProductCard>;
                     })}
                     {aCat4Data.map((value, index) => {
-                        return <ProductCard data={value} key={index}></ProductCard>;
+                        return <AuctionCard data={value} key={index}></AuctionCard>;
                     })}
                 </div>
 

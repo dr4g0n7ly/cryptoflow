@@ -6,7 +6,8 @@ import { Footer } from './components/Footer.js';
 import Home from './components/Home.js';
 import Profile from './components/Profile.js';
 import SellProduct from './components/SellProduct.js';
-import NFTPage from './components/NFTpage.js';
+import AuctionProductPage from './components/AuctionProductPage';
+import MarketProductPage from './components/MarketProductPage';
 import AuctionProduct from './components/AuctionProduct.js';
 
 import { useState } from 'react';
@@ -67,7 +68,8 @@ function App() {
               <div>
                 <Routes>
                   <Route path="/" element={<Home />}/>
-                  <Route path="/nftPage" element={<NFTPage />}/>        
+                  <Route path="/auctionProductPage/:id/" element={<AuctionProductPage />}/>
+                  <Route path="/marketProductPage/:id/" element={<MarketProductPage />}/>        
                   <Route path="/profile" element={<Profile />}/>
                   <Route path="/sellProduct" element={<SellProduct />}/>  
                   <Route path="/auctionProduct" element={<AuctionProduct />}/>  

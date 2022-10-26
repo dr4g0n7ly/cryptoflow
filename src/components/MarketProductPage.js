@@ -3,7 +3,7 @@ import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
 
-export default function NFTPage (props) {
+export default function MarketProductPage (props) {
 
 const [data, updateData] = useState({});
 const [dataFetched, updateDataFetched] = useState(false);
@@ -72,8 +72,8 @@ async function buyNFT(tokenId) {
     return(
         <div>
             <div className>
-                <img src={data.image} alt=""/>
                 <div>
+                    <br /><br /><br />
                     <div>
                         Name: {data.name}
                     </div>
@@ -94,7 +94,6 @@ async function buyNFT(tokenId) {
                         <button onClick={() => buyNFT(tokenId)}>Buy this NFT</button>
                         : <div>You are the owner of this NFT</div>
                     }
-                    
                     <div>{message}</div>
                     </div>
                 </div>

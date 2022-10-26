@@ -1,0 +1,25 @@
+#product-card {
+    max-width: 15rem;
+    padding: 5px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: #20212C;
+    color: white;
+}
+
+#product-card:hover {
+    box-shadow: whitesmoke 2px 2px 10px;
+}
+
+#product-price {
+    color: #6AC6FF;
+}
+
+.card-img {
+    height: 9rem;
+    width: 14rem;
+}
+
+.card-link:hover {
+    text-decoration: none;
+}

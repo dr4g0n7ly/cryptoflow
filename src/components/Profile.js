@@ -2,7 +2,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import MarketplaceJSON from "../Marketplace.json";
 import axios from "axios";
 import { useState } from "react";
-import ProductCard from "./ProductCard";
+import ProductCard from './ProductCard';
 
 export default function Profile () {
     const [data, updateData] = useState([]);

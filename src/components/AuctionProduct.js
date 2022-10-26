@@ -9,7 +9,7 @@ import back from '../public/back.png';
 
 const AuctionProduct = () => {
 
-    const [formParams, updateFormParams] = useState({ name: '', description: '', bidPrice: '', bidIncrement:'', duration:'', category: ''});
+    const [formParams, updateFormParams] = useState({ name: '', description: '', bidPrice: '', bidIncrement:'', duration:'', category: '1'});
     const [fileURL, setFileURL] = useState(null);
     const ethers = require("ethers");
     const [message, updateMessage] = useState('');
@@ -147,7 +147,7 @@ const AuctionProduct = () => {
                         </Row>
                         <br/><br/>
                         <div className="text-green text-center">{message}</div>
-                        <br/><br/>
+                        <br/>
                         <Button className="auction-button d-flex justify-content-center" size="lg" onClick={listNFT}>Auction Product</Button>
                     </div>
                 </main>
