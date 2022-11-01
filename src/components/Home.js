@@ -327,7 +327,6 @@ const Home = () => {
         updateACat4Data(items4);
     }
 
-
     if(!marketDataFetched) {
         getAllNFTs();
         getCategoryNFTs();
@@ -398,7 +397,6 @@ const Home = () => {
                         return <AuctionCard data={value} key={index}></AuctionCard>;
                     })}
                 </div>
-
             </div>            
         </div>
     );

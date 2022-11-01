@@ -23,7 +23,6 @@ const NavBar = ({ web3Handler, account }) => {
                 </Form> 
                 <Nav>
                     <Nav.Link as={Link} to="/history" className="nav">History</Nav.Link>
-                    <Nav.Link as={Link} to="/currentbid" className="nav">Current Bid</Nav.Link>
                 </Nav>
                 <Nav className="ml-auto">
                     <Nav.Link as={Link} to="/auctionProduct" className="productnav">Auction Product</Nav.Link>

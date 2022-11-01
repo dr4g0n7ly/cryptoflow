@@ -4,6 +4,7 @@ import './App.css';
 import NavBar from './components/NavBar.js';
 import { Footer } from './components/Footer.js';
 import Home from './components/Home.js';
+import History from './components/History.js';
 import Profile from './components/Profile.js';
 import SellProduct from './components/SellProduct.js';
 import AuctionProductPage from './components/AuctionProductPage';
@@ -68,9 +69,10 @@ function App() {
               <div>
                 <Routes>
                   <Route path="/" element={<Home />}/>
-                  <Route path="/auctionProductPage/:id/" element={<AuctionProductPage />}/>
-                  <Route path="/marketProductPage/:id/" element={<MarketProductPage />}/>        
+                  <Route path="/auctionProductPage/:id" element={<AuctionProductPage />}/>
+                  <Route path="/marketProductPage/:id" element={<MarketProductPage />}/>        
                   <Route path="/profile" element={<Profile />}/>
+                  <Route path="/history" element={<History />}/>
                   <Route path="/sellProduct" element={<SellProduct />}/>  
                   <Route path="/auctionProduct" element={<AuctionProduct />}/>  
                 </Routes>

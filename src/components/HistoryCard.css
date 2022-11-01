@@ -1,0 +1,24 @@
+.main {
+    background-color: #20212C;
+    padding: 20px;
+    border-radius: 7px;
+    display: flex;
+    color: aliceblue;
+    margin: 10px 0px 10px;
+}
+
+.main:hover {
+    background-color: #15161d;
+}
+
+.c {
+    padding-left: 45px;
+    margin: auto;
+}
+
+#c3 {
+    text-align: center;
+}
+.img {
+    width: 10rem;
+}

@@ -19,7 +19,7 @@ module.exports = {
     },
     goerli: {
       url: "https://eth-goerli.g.alchemy.com/v2/59IL3bNPCvXPQF62IfCdtMy1jT-y_mKH", 
-      accounts: [ "e51d02d597806e531dad33bf45ab1b8312a494e5280de4097c88f3babc5b16dc" ]
+      accounts: [ "b1179379f3fb6f7da0622d4f6607a9356b94da8f91fe35b5cedc702889cae410" ]
     }
   },
   solidity: {

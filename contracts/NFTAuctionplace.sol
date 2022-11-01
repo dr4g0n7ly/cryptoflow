@@ -12,7 +12,7 @@ contract NFTAuctionplace is ERC721URIStorage {
     Counters.Counter private _tokenIds;
 
     address payable owner;
-    uint256 listPrice = 0.01 ether;
+    uint256 listPrice = 0.00 ether;
 
     //The structure to store info about a listed token
     struct AuctionToken {
@@ -56,11 +56,19 @@ contract NFTAuctionplace is ERC721URIStorage {
         return listPrice;
     }
 
+    function Unlist(uint tokenId) public payable{
 
-    function StartAuction(string memory tokenURI, uint256 price, uint256 bidIncrement, uint256 durationInSeconds, uint256 category) public payable returns (uint) {
+        bool currentlyListed = idToAuctionedToken[tokenId].currentlyListed;
+        require(currentlyListed = true, "Item must be currently listed");
+
+        idToAuctionedToken[tokenId].currentlyListed = false;
+    }
+
+
+    function StartAuction(string memory tokenURI, uint256 price, uint256 bidIncrement, uint256 duration, uint256 category) public payable returns (uint) {
         require(msg.value == listPrice, "Must send listing price");
         require(price > 5000000000000000, "Must set price of auction item greater than 0.005 ETH");
-        require(durationInSeconds > 15, "Must set duration of auction greater than 0");
+        require(duration > 0, "Must set duration of auction greater than 0 days");
 
         _tokenIds.increment();
         uint256 currentTokenId = _tokenIds.current();
@@ -75,7 +83,7 @@ contract NFTAuctionplace is ERC721URIStorage {
             payable(msg.sender),
             price,
             bidIncrement,
-            block.timestamp + durationInSeconds,
+            duration,
             category,
             true
         );
@@ -90,7 +98,7 @@ contract NFTAuctionplace is ERC721URIStorage {
             msg.sender,
             price,
             bidIncrement,
-            block.timestamp + durationInSeconds,
+            duration,
             category,
             true
         );
@@ -105,12 +113,11 @@ contract NFTAuctionplace is ERC721URIStorage {
         uint256 bidInc = idToAuctionedToken[tokenId].bidIncrement;
         address seller = idToAuctionedToken[tokenId].seller;
         address currentBidder = idToAuctionedToken[tokenId].highestBidder;
-        uint256 endTime = idToAuctionedToken[tokenId].endTime;
         bool currentlyListed = idToAuctionedToken[tokenId].currentlyListed;
 
-        if (endTime <= block.timestamp && currentlyListed == true) {
-            idToAuctionedToken[tokenId].currentlyListed = false;
+        if (currentlyListed == true) {
             idToAuctionedToken[tokenId].owner = payable(currentBidder);
+            idToAuctionedToken[tokenId].endTime = 0;
             
             _transfer(address(this), currentBidder, tokenId);
             approve(address(this), tokenId);
@@ -123,7 +130,6 @@ contract NFTAuctionplace is ERC721URIStorage {
 
         require(currentlyListed = true, "Item must be currently listed");
         require(msg.value >= price + bidInc, "Bid must be atleast bid Increment greater than current bid price");
-        require(block.timestamp >= endTime, "Auction has expired");
 
         if (seller != currentBidder) {
             payable(currentBidder).transfer(price);
@@ -185,18 +191,24 @@ contract NFTAuctionplace is ERC721URIStorage {
 
         for(uint i=0; i < totalItemCount; i++)
         {
-            if(idToAuctionedToken[i+1].currentlyListed == true && idToAuctionedToken[i+1].category == categoryNum){
-                itemCount += 1;
+            if(idToAuctionedToken[i+1].currentlyListed == true && idToAuctionedToken[i+1].category == categoryNum) {
+                if (idToAuctionedToken[i+1].currentlyListed == true) {
+                    itemCount += 1;   
+                }
+                
             }
         }
 
         AuctionToken[] memory items = new AuctionToken[](itemCount);
         for(uint i=0; i < totalItemCount; i++) {
             if(idToAuctionedToken[i+1].currentlyListed == true && idToAuctionedToken[i+1].category == categoryNum) {
-                currentId = i+1;
-                AuctionToken storage currentItem = idToAuctionedToken[currentId];
-                items[currentIndex] = currentItem;
-                currentIndex += 1;
+                if (idToAuctionedToken[i+1].currentlyListed == true) {
+                    currentId = i+1;
+                    AuctionToken storage currentItem = idToAuctionedToken[currentId];
+                    items[currentIndex] = currentItem;
+                    currentIndex += 1;    
+                }
+                
             }
         }
         return items;
@@ -223,6 +235,20 @@ contract NFTAuctionplace is ERC721URIStorage {
                 AuctionToken storage currentItem = idToAuctionedToken[currentId];
                 items[currentIndex] = currentItem;
                 currentIndex += 1;
+            }
+        }
+        return items;
+    }
+
+    function getAuctionProductDetails(uint256 T_ID) public view returns (AuctionToken[] memory) {
+
+        uint totalItemCount = _tokenIds.current();
+        AuctionToken[] memory items = new AuctionToken[](1);
+
+        for(uint i=0; i < totalItemCount; i++) {
+            if(idToAuctionedToken[i+1].tokenId == T_ID) {
+                AuctionToken storage currentItem = idToAuctionedToken[i+1];
+                items[0] = currentItem;
             }
         }
         return items;

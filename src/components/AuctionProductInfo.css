@@ -1,0 +1,55 @@
+.ap-info-body {
+    margin-bottom: 80px;
+    margin-left: 80px;
+    margin-right: 80px;
+    margin-top: -70px;
+}
+
+.ap-img {
+    width: 50%;
+    object-fit: contain;
+}
+
+.ap-main {
+    margin-top: 40px;
+    display: flex;
+    justify-content: left;
+}
+
+.ap-texts {
+    margin-left: 10%;
+}
+.ap-category {
+    font-size: large;
+    color: #008BF6;
+    font-weight: 500;
+}
+.ap-title {
+    font-size: xx-large;
+    font-weight: bold;
+}
+.ap-time {
+    font-size: large;
+}
+.ap-price {
+    font-size: large;
+    font-weight: bold;
+    color:#48adf9;
+    margin-bottom: 30px;
+}
+
+.ap-bid-button {
+    margin-top: 40px;
+    width: 100%;
+    background-color: #0C0B0E;
+    border: 1px solid white;
+    border-radius: 10px;
+    color: #008BF6 !important;
+    margin: 2px;
+    font-size: medium;
+}
+.ap-bid-button:hover {
+    border: 1px solid #0C0B0E;
+    border-radius: 10px;
+    background-color: #1b1c28;
+}

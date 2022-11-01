@@ -13,7 +13,7 @@ contract NFTMarketplace is ERC721URIStorage {
     Counters.Counter private _itemsSold;
     
     address payable owner;
-    uint256 listPrice = 0.01 ether;
+    uint256 listPrice = 0.00 ether;
 
     //The structure to store info about a listed token
     struct ListedToken {
@@ -53,6 +53,17 @@ contract NFTMarketplace is ERC721URIStorage {
 
     function getCurrentToken() public view returns (uint256) {
         return _tokenIds.current();
+    }
+
+    function Unlist(uint tokenId) public {
+
+        bool currentlyListed = idToListedToken[tokenId].currentlyListed;
+        require(currentlyListed = true, "Item must be currently listed");
+
+        address seller = idToListedToken[tokenId].seller;
+        idToListedToken[tokenId].owner = payable(seller);
+
+        idToListedToken[tokenId].currentlyListed = false;
     }
 
     //The first time a token is created, it is listed here
@@ -217,6 +228,19 @@ contract NFTMarketplace is ERC721URIStorage {
 
         //Transfer the proceeds from the sale to the seller of the NFT
         payable(seller).transfer(msg.value);
+    }
+
+    function getMarketProductDetails(uint256 T_ID) public view returns (ListedToken[] memory) {
+        uint totalItemCount = _tokenIds.current();
+        ListedToken[] memory items = new ListedToken[](1);
+        
+        for(uint i=0; i < totalItemCount; i++) {
+            if(idToListedToken[i+1].tokenId == T_ID) {
+                ListedToken storage currentItem = idToListedToken[i+1];
+                items[0] = currentItem;
+            }
+        }
+        return items;
     }
 
     //We might add a resell token function in the future

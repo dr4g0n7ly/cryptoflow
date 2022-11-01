@@ -8,7 +8,7 @@ import './SellProduct.css';
 import back from '../public/back.png';
 
 const SellProduct = () => {
-    const [formParams, updateFormParams] = useState({ name: '', description: '', price: '', category: ''});
+    const [formParams, updateFormParams] = useState({ name: '', description: '', price: '', category: '1'});
     const [fileURL, setFileURL] = useState(null);
     const ethers = require("ethers");
     const [message, updateMessage] = useState('');
@@ -118,7 +118,7 @@ const SellProduct = () => {
                         <Row>
                             <Col>
                                 <div className="sell-heading">Product Price</div>
-                                <Form.Control className="input" type="number" size="lg" placeholder="Min 0.005 ETH" step="0.005" value={formParams.price} onChange={e => updateFormParams({...formParams, price: e.target.value})} />
+                                <Form.Control className="input" type="number" size="lg" placeholder="Min 0.005 ETH" step="0.05" value={formParams.price} onChange={e => updateFormParams({...formParams, price: e.target.value})} />
                             </Col>
                         </Row>
                         <Row>

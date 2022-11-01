@@ -72,9 +72,8 @@ const AuctionProduct = () => {
             //massage the params to be sent to the create NFT request
             const bidPrice = ethers.utils.parseUnits(formParams.bidPrice, 'ether')
             const bidIncrement = ethers.utils.parseUnits(formParams.bidIncrement, 'ether')
-            const durationInSeconds = (formParams.duration * 24 * 60 * 60)
+            const duration = ethers.utils.parseUnits(formParams.duration, 'ether')
             console.log("days: ", formParams.duration);
-            console.log("seconds: ", durationInSeconds);
             const category = formParams.category;
             
             console.log("Category: ", category);
@@ -82,7 +81,7 @@ const AuctionProduct = () => {
             listingPrice = listingPrice.toString()
 
             //actually create the NFT
-            let transaction = await contract.StartAuction(metadataURL, bidPrice, bidIncrement, durationInSeconds, category, { value: listingPrice })
+            let transaction = await contract.StartAuction(metadataURL, bidPrice, bidIncrement, duration, category, { value: listingPrice })
             await transaction.wait()
 
             alert("Successfully listed your NFT!");
