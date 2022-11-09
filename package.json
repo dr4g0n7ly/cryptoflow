@@ -10,6 +10,7 @@
     "axios": "^0.27.2",
     "bootstrap": "^4.6.2",
     "fs": "*",
+    "gh-pages": "^4.0.0",
     "path-browserify": "^1.0.1",
     "react": "^18.1.0",
     "react-bootstrap": "^2.5.0",
@@ -18,7 +19,8 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4",
-    "web3modal": "^1.9.7"
+    "web3modal": "^1.9.7",
+    "homepage": "https://dr4g0n7ly.github.io/cryptoflow-final-final"
   },
   "scripts": {
     "start": "react-app-rewired start",
